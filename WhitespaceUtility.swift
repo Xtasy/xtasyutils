@@ -15,15 +15,23 @@ extension String {
 
         // remove all leading spaces
         var idx = 0
-        for character in result.characters where character != " " {
-            idx += 1
+        for character in result.characters {
+            if character == " " {
+                idx += 1
+            } else {
+                break
+            }
         }
         result = result.substring(from: result.index(result.startIndex, offsetBy: idx))
 
         // remove all trailing spaces
         idx = 0
         for character in result.characters.reversed() where character != " " {
-            idx += 1
+            if character == " " {
+                idx += 1
+            } else {
+                break
+            }
         }
         result = result.substring(to: result.index(result.endIndex, offsetBy: -idx))
 
